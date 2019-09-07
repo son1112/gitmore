@@ -32,7 +32,6 @@ module Gitt
     end
 
     def checkout
-      # TODO: refactor, factor out repository instance
       repositories.each do |repository|
         Dir.chdir(repository) do
           if branch_exists? && clean_status?
@@ -44,6 +43,19 @@ module Gitt
           elsif !clean_status?
             puts repository.colorize(:black).on_red
             system('git status')
+          end
+        end
+      end
+    end
+
+    def fetches
+      repositories.each do |repository|
+        # TODO: refactor usage of Dir into block yield helper of some sort
+        puts "Checking for changes in #{repository}...".colorize(:black).on_blue.blink
+        Dir.chdir(repository) do
+          unless `git fetch`.to_s.empty?
+            puts repository.colorize(:black).on_yellow
+            puts fetch
           end
         end
       end

@@ -31,4 +31,11 @@ module Gitt
     repositories = Gitt::BranchMatcher.new
     repositories.versions(language)
   end
+
+  def self.fetches
+    #  runs `git fetch ` on each repo in the current directory
+    # returns list of repos and changes
+    repositories = Gitt::BranchMatcher.new
+    repositories.fetches
+  end
 end

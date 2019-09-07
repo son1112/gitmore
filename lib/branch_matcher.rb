@@ -1,3 +1,5 @@
+# TODO: move this file into gitt directory
+
 require_relative 'helpers/branch_helper.rb'
 require_relative 'helpers/ruby_helper.rb'
 require_relative 'repositories.rb'
