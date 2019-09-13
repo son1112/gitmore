@@ -33,9 +33,12 @@ module Gitt
   end
 
   def self.fetches
-    #  runs `git fetch ` on each repo in the current directory
-    # returns list of repos and changes
     repositories = Gitt::BranchMatcher.new
     repositories.fetches
+  end
+
+  def self.pulls
+    repositories = Gitt::BranchMatcher.new
+    repositories.pulls
   end
 end

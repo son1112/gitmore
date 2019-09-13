@@ -32,8 +32,7 @@ module Gitt
     end
 
     def checkout
-      repositories.each do |repository|
-        Dir.chdir(repository) do
+      checkout = Proc.new { |repository| 
           if branch_exists? && clean_status?
             unless current_branch == matcher
               `git checkout #{matcher}`
@@ -44,19 +43,37 @@ module Gitt
             puts repository.colorize(:black).on_red
             system('git status')
           end
-        end
-      end
+      }
+
+      perform(&checkout)
     end
 
     def fetches
+      fetch = Proc.new { |repository|
+        puts "Fetching changes in #{repository}...".colorize(:black).on_blue.blink
+        unless `git fetch`.to_s.empty?
+          puts repository.colorize(:black).on_yellow
+        end
+      }
+
+      perform(&fetch)
+    end
+
+    def pulls
+      pull = Proc.new { |repository|
+        puts "Pulling changes in #{repository}...".colorize(:black).on_blue.blink
+        system('git pull')
+      }
+
+      perform(&pull)
+    end
+
+    private
+
+    def perform(&block)
       repositories.each do |repository|
-        # TODO: refactor usage of Dir into block yield helper of some sort
-        puts "Checking for changes in #{repository}...".colorize(:black).on_blue.blink
         Dir.chdir(repository) do
-          unless `git fetch`.to_s.empty?
-            puts repository.colorize(:black).on_yellow
-            puts fetch
-          end
+          block[repository]
         end
       end
     end
