@@ -22,6 +22,11 @@ module Gitt
     repositories.status
   end
 
+  def self.diffs(branch_string=nil)
+    repositories = Gitt::BranchMatcher.new(branch_string)
+    repositories.diffs
+  end
+
   def self.gems(branch_string=nil)
     repositories = Gitt::BranchMatcher.new(branch_string)
     repositories.gems
