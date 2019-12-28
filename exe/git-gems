@@ -1,6 +1,5 @@
 #!/usr/bin/ruby
 
-# require_relative 'gitt/lib/gitt.rb'
 require 'gitt'
 
 Gitt.gems

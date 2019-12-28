@@ -3,8 +3,3 @@
 file = ARGV[0]
 
 `git stash push -m single-file-stash #{file}`
-
-# `git add #{file}`
-# `git stash --keep-index`
-# `git add #{file}`
-# `git stash apply stash@{1}`
