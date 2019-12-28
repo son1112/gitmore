@@ -1,0 +1,8 @@
+#!/usr/bin/ruby
+
+require 'gitt'
+
+branch_matcher = ARGV[0]
+option = ARGV[1]
+
+Gitt.branches(branch_matcher, option)

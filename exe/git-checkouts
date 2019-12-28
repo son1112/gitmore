@@ -1,0 +1,8 @@
+#!/usr/bin/ruby
+
+# require_relative 'gitt/lib/gitt.rb'
+require 'gitt'
+
+branch_matcher = ARGV[0]
+
+Gitt.checkouts(branch_matcher)

@@ -1,0 +1,7 @@
+#!/usr/bin/ruby
+
+# require_relative 'gitt/lib/gitt.rb'
+require 'gitt'
+
+language = ARGV[0]
+Gitt.versions(language)
