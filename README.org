@@ -1,0 +1,65 @@
+* Gitmore
+
+  Get more out of git! This library provides extra git commands that make 
+  handling multiple repositories at one time much easier. Let's say you
+  have a microservice architecture, organized locally as multiple git
+  repositories in a single directory. The feature you are currently working
+  on requires changes in a handful of them. You have created branches by the
+  same name in the associated repositories. You have finished your work and
+  need to switch back to master for the entire system. Instead of trying to
+  remember the 5 (or was it 6?) different services you made changes in...
+
+  Try ~git branches feature/my-cool-feature~ to print out all repos in the current
+  directory that are checked out to the branch.
+
+  #+BEGIN_SRC text
+  my-cool-service-repo
+    bug/thing-was-broken
+    feature/cool-new-thing
+  * feature/my-cool-feature
+    some-other-branch
+
+  another-cool-service-repo
+    some-branch
+    some-other-branch
+  * feature/my-cool-feature
+  #+END_SRC
+
+  Other gitmore commands to try:
+
+  ~git checkouts <branch-name>~ (default: master) - Check out all branches that have a branch
+  by the given name. Warns and prints unstashed changes when applicable, does not check out branch
+  on that repo.
+
+  ~git diffs~ - Print diffs on all repos in current directory
+
+  ~git fetches~ - Run ~git fetch~ on all repos in current directory
+
+  ~git pulls~ - Pulls changes on all repos in current directory
+
+  ~git gems~ - Print names of repos that are ruby gem projects
+
+  ~git logf~ - Alias for ~git log --name-status --graph~
+
+  ~git rollback~ - Alias for ~git reset HEAD~1~
+
+  ~git save <name>~ - Alias for ~git stash save <name>~
+
+  ~git sstash <filename>~ - Stash a single file
+
+  ~git statuses~ - Print ~git status~ for each repo in directory
+
+  ~git versions ruby~ - Print version of ruby being used on each repo in the 
+  current directory containing ~.ruby-version~
+
+  More features documentation forthcoming! I whipped these up when working
+  on a project with at least 30 repositories that I found I needed an easier
+  way to manage. Much work is yet to be done, so please create an issue
+  for problems, suggestions, or feature requests. And of course, feel free
+  to contribute! Fork, play and create a pull request!
+
+* Install
+
+  ~gem install gitmore~
+
+
