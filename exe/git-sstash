@@ -1,0 +1,5 @@
+#!/usr/bin/ruby
+
+file = ARGV[0]
+
+`git stash push -m single-file-stash #{file}`

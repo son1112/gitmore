@@ -1,4 +1,4 @@
-module Gitt
+module Gitmore
   module Repositories
     def self.get
       directories.select { |dir| Dir.entries(dir).include?('.git') }

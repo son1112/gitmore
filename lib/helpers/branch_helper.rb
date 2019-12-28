@@ -1,6 +1,6 @@
 require 'colorize'
 
-module Gitt
+module Gitmore
   module BranchHelper
     def branch_exists?
       !`git rev-parse --verify --quiet #{matcher}`.to_s.empty?

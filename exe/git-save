@@ -1,0 +1,5 @@
+#!/usr/bin/ruby
+
+name = ARGV[0]
+
+`git stash save #{name}`

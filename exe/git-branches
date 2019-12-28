@@ -1,0 +1,8 @@
+#!/usr/bin/ruby
+
+require 'gitmore'
+
+branch_matcher = ARGV[0]
+option = ARGV[1]
+
+Gitmore.branches(branch_matcher, option)

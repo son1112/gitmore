@@ -2,17 +2,17 @@
 # gem fury build runs ruby 1.9 wat?, which doesn't support __dir__
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "gitt/version"
+require "gitmore/version"
 
 Gem::Specification.new do |spec|
-  spec.name = "gitt"
-  spec.version = Gitt::VERSION
+  spec.name = "gitmore"
+  spec.version = Gitmore::VERSION
   spec.authors = ["son1112"]
   spec.email = ["anderson.reinkordt@gmail.com"]
 
   spec.summary = %q{Special Git helper tools}
   spec.description = %q{When you need to git things done on multiple local repositories.}
-  spec.homepage = "https://github.com/son1112/gitt"
+  spec.homepage = "https://github.com/son1112/gitmore"
   spec.license = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
