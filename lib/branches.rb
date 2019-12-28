@@ -1,4 +1,4 @@
-module Gitt
+module Gitmore
   module Branches
     def branches
       matching_repositories = []

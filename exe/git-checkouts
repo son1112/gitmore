@@ -1,7 +1,7 @@
 #!/usr/bin/ruby
 
-require 'gitt'
+require 'gitmore'
 
 branch_matcher = ARGV[0]
 
-Gitt.checkouts(branch_matcher)
+Gitmore.checkouts(branch_matcher)

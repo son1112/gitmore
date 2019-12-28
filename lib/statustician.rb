@@ -1,4 +1,4 @@
-module Gitt
+module Gitmore
   module Statustician
     def status
       repositories.each do |repository|

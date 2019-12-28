@@ -1,4 +1,4 @@
-module Gitt
+module Gitmore
   module RubyHelper
     def gems
       repositories.each do |repository|

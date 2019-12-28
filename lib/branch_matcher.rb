@@ -1,24 +1,22 @@
-# TODO: move this file into gitt directory
-
 require_relative 'helpers/branch_helper.rb'
 require_relative 'helpers/ruby_helper.rb'
 require_relative 'repositories.rb'
 require_relative 'branches.rb'
 require_relative 'statustician.rb'
 
-module Gitt
+module Gitmore
   class BranchMatcher
     attr_accessor :matcher, :option, :repositories
 
     include BranchHelper
     include RubyHelper
-    include Gitt::Branches
-    include Gitt::Statustician
+    include Gitmore::Branches
+    include Gitmore::Statustician
 
     def initialize(matcher=nil, option=nil)
       @matcher = matcher || 'master'
       @option = option
-      @repositories = Gitt::Repositories.get
+      @repositories = Gitmore::Repositories.get
     end
 
     private

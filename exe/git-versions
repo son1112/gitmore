@@ -1,6 +1,6 @@
 #!/usr/bin/ruby
 
-require 'gitt'
+require 'gitmore'
 
 language = ARGV[0]
-Gitt.versions(language)
+Gitmore.versions(language)
