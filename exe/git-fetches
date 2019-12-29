@@ -2,4 +2,4 @@
 
 require 'gitmore'
 
-Gitmore.fetches
+Gitmore::Matcher.new.fetches

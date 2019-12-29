@@ -3,4 +3,4 @@
 require 'gitmore'
 
 language = ARGV[0]
-Gitmore.versions(language)
+Gitmore::Matcher.new.versions(language)

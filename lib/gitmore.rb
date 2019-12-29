@@ -1,49 +1,51 @@
 require 'gitmore/version'
-
-require 'helpers/branch_helper.rb'
-require 'helpers/ruby_helper.rb'
-require 'branch_matcher.rb'
-require 'statustician.rb'
+require 'gitmore/utils'
 
 module Gitmore
   class Error < StandardError; end
-  def self.branches(branch_string, option=nil)
-    repositories = Gitmore::BranchMatcher.new(branch_string, option)
-    repositories.branches
-  end
 
-  def self.checkouts(branch_string=nil)
-    repositories = Gitmore::BranchMatcher.new(branch_string)
-    repositories.checkout
-  end
+  class Matcher
+    attr_reader :branch_string, :option
 
-  def self.statuses(branch_string=nil)
-    repositories = Gitmore::BranchMatcher.new(branch_string)
-    repositories.status
-  end
+    def initialize(branch_string=nil, option=nil)
+      @branch_string = branch_string
+      @option = option
+    end
 
-  def self.diffs(branch_string=nil)
-    repositories = Gitmore::BranchMatcher.new(branch_string)
-    repositories.diffs
-  end
+    def branches
+      repositories.branches
+    end
 
-  def self.gems(branch_string=nil)
-    repositories = Gitmore::BranchMatcher.new(branch_string)
-    repositories.gems
-  end
+    def checkouts
+      repositories.checkout
+    end
 
-  def self.versions( language)
-    repositories = Gitmore::BranchMatcher.new
-    repositories.versions(language)
-  end
+    def statuses
+      repositories.status
+    end
 
-  def self.fetches
-    repositories = Gitmore::BranchMatcher.new
-    repositories.fetches
-  end
+    def diffs
+      repositories.diffs
+    end
 
-  def self.pulls
-    repositories = Gitmore::BranchMatcher.new
-    repositories.pulls
+    def gems
+      repositories.gems
+    end
+
+    def versions(language)
+      repositories.versions(language)
+    end
+
+    def fetches
+      repositories.fetches
+    end
+
+    def pulls
+      repositories.pulls
+    end
+
+    def repositories
+      Gitmore::Repositories.get_for(branch_string, option)
+    end
   end
 end

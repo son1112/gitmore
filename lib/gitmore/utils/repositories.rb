@@ -1,5 +1,9 @@
 module Gitmore
   module Repositories
+    def self.get_for(branch_string, option)
+      Gitmore::BranchMatcher.new(branch_string, option)
+    end
+
     def self.get
       directories.select { |dir| Dir.entries(dir).include?('.git') }
     end

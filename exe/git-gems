@@ -2,4 +2,4 @@
 
 require 'gitmore'
 
-Gitmore.gems
+Gitmore::Matcher.new.gems

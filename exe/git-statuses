@@ -2,4 +2,4 @@
 
 require 'gitmore'
 
-Gitmore.statuses
+Gitmore::Matcher.new.statuses
