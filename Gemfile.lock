@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    gitmore (0.3.0.pre.rc)
+    gitmore (0.3.3)
       colorize
 
 GEM

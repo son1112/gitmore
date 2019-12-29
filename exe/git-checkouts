@@ -3,5 +3,6 @@
 require 'gitmore'
 
 branch_matcher = ARGV[0]
+matcher = Gitmore::Matcher.new(branch_string)
 
-Gitmore.checkouts(branch_matcher)
+matcher.checkouts

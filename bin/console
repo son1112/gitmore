@@ -10,5 +10,7 @@ require "gitmore"
 # require "pry"
 # Pry.start
 
+require 'byebug'
+
 require "irb"
 IRB.start(__FILE__)

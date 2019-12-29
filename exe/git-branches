@@ -2,7 +2,8 @@
 
 require 'gitmore'
 
-branch_matcher = ARGV[0]
+branch_string = ARGV[0]
 option = ARGV[1]
+matcher = Gitmore::Matcher.new(branch_string, option)
 
-Gitmore.branches(branch_matcher, option)
+matcher.branches

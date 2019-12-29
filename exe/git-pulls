@@ -2,4 +2,4 @@
 
 require 'gitmore'
 
-Gitmore.pulls
+Gitmore::Matcher.new.pulls

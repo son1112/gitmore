@@ -1,9 +1,3 @@
-require_relative 'helpers/branch_helper.rb'
-require_relative 'helpers/ruby_helper.rb'
-require_relative 'repositories.rb'
-require_relative 'branches.rb'
-require_relative 'statustician.rb'
-
 module Gitmore
   class BranchMatcher
     attr_accessor :matcher, :option, :repositories
