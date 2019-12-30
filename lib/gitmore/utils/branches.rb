@@ -28,6 +28,12 @@ module Gitmore
         non_matching_repositories.each do  |name|
           puts name.colorize(:red)
         end
+
+        puts puts
+
+        non_matching_repositories.each do  |repository|
+          format_branch_info(repository, `git branch --color`, :on_red)
+        end
       end
     end
 

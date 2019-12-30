@@ -44,6 +44,8 @@ module Gitmore
       repositories.pulls
     end
 
+    private
+
     def repositories
       Gitmore::Repositories.get_for(branch_string, option)
     end
