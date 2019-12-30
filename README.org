@@ -28,7 +28,7 @@
   Other gitmore commands to try:
 
   ~git checkouts <branch-name>~ (default: master) - Check out all branches that have a branch
-  by the given name. Warns and prints unstashed changes when applicable, does not check out branch
+  by the given name. Warns and prints unstaged changes when applicable, does not check out branch
   on that repo.
 
   ~git diffs~ - Print diffs on all repos in current directory
