@@ -32,7 +32,9 @@ module Gitmore
         puts puts
 
         non_matching_repositories.each do  |repository|
-          format_branch_info(repository, `git branch --color`, :on_red)
+          Dir.chdir(repository) do
+            format_branch_info(repository, `git branch --color`, :on_red)
+          end
         end
       end
     end
