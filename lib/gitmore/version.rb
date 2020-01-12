@@ -1,3 +1,3 @@
 module Gitmore
-  VERSION = '0.3.5-alpha'
+  VERSION = '0.3.5'
 end
