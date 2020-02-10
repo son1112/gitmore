@@ -1,8 +1,12 @@
+# typed: false
 require 'colorize'
 
 module Gitmore
   module BranchHelper
     def branch_exists?
+      # Does not work if branch not checked out previously :/
+
+      `git checkout -q #{matcher}`
       !`git rev-parse --verify --quiet #{matcher}`.to_s.empty?
     end
 

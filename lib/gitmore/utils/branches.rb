@@ -1,3 +1,4 @@
+# typed: true
 module Gitmore
   module Branches
     def branches
@@ -46,7 +47,7 @@ module Gitmore
               `git checkout #{matcher}`
             end
           elsif !branch_exists?
-            puts "branch #{matcher} does not exit on #{repository}"
+            puts "branch #{matcher} does not exist on #{repository}"
           elsif !clean_status?
             puts repository.colorize(:black).on_red
             system('git status')
