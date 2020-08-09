@@ -1,6 +1,10 @@
 # typed: true
+
+require_relative '../jobs/sync.rb'
+
 module Gitmore
   module Branches
+    # TODO: lots of refactoring opportunity
     def branches
       matching_repositories = []
 
@@ -75,6 +79,11 @@ module Gitmore
       }
 
       perform(&pull)
+    end
+
+    def sync(dir)
+      puts "Syncing repository at #{dir}...".colorize(:black).on_blue.blink
+      Gitmore::SyncJob.new.perform_async(dir)
     end
 
     private

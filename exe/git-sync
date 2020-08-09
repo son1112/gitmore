@@ -1,0 +1,7 @@
+#!/usr/bin/ruby
+
+require 'gitmore'
+
+# Check if sidekiq running
+
+Gitmore::Matcher.new.sync

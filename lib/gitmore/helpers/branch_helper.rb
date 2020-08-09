@@ -4,7 +4,7 @@ require 'colorize'
 module Gitmore
   module BranchHelper
     def branch_exists?
-      # Does not work if branch not checked out previously :/
+      # TODO: update to work if branch not checked out previously
 
       `git checkout -q #{matcher}`
       !`git rev-parse --verify --quiet #{matcher}`.to_s.empty?
@@ -12,7 +12,6 @@ module Gitmore
 
     def format_branch_info(repository, result, color=:on_green)
       return unless result
-      # puts repository.colorize(:black).on_green
       puts repository.colorize(:black).send(color)
       puts puts result
     end
