@@ -82,8 +82,9 @@ module Gitmore
     end
 
     def sync(dir)
-      puts "Syncing repository at #{dir}...".colorize(:black).on_blue.blink
-      Gitmore::SyncJob.new.perform_async(dir)
+      puts "Syncing repository at #{dir}..."
+        .colorize(:black).on_blue
+      Gitmore::SyncJob.perform_async(dir)
     end
 
     private

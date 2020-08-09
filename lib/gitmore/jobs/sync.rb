@@ -14,11 +14,7 @@ class Gitmore::SyncJob
   def perform(dir)
     # chdir git fetch and pull
     Dir.chdir(dir) do
-      # TEST
-      count = Dir.entries(dir).count
-      count.times do
-        `afplay /System/Library/Sounds/Tink.aiff`
-      end
+      `git fetch && git pull`
     end
   end
 end

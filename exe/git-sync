@@ -2,6 +2,46 @@
 
 require 'gitmore'
 
-# Check if sidekiq running
+# Redis?
+# redis installed?
+def redis_installed
+  !`gem list | grep redis`.empty?
+end
+
+def redis_running
+  redis_ping = `redis-cli ping`
+  redis_ping =~ /PONG/
+end
+
+def sidekiq_installed
+  !`gem list | grep sidekiq`.empty?
+end
+
+def sidekiq_running
+  # GOLD
+  !`ps aux | grep '[s]idekiq'`.empty?
+end
+
+def installed
+  redis_installed && sidekiq_installed
+end
+
+def running
+  redis_running && sidekiq_running
+end
+
+unless redis_running
+  `redis-server --daemonize yes`
+end
+raise "Redis is not installed." unless redis_installed
+raise "Redis is not running." unless redis_running
+raise "Sidekiq is not installed" unless sidekiq_installed
+
+unless running
+  raise "Sidekiq is not running. Please run`bundle exec sidekiq -d -r ./lib/gitmore/jobs/*`"
+end
+
+puts 'Begin sync'
 
 Gitmore::Matcher.new.sync
+

@@ -13,7 +13,7 @@ GEM
     connection_pool (2.2.3)
     diff-lcs (1.3)
     rack (2.2.3)
-    rake (13.0.1)
+    rake (12.3.3)
     redis (4.2.1)
     rspec (3.8.0)
       rspec-core (~> 3.8.0)
@@ -40,7 +40,7 @@ DEPENDENCIES
   bundler (~> 2.0)
   byebug
   gitmore!
-  rake (>= 12.3.3)
+  rake (~> 12.3, >= 12.3.3)
   rspec (~> 3.0)
 
 BUNDLED WITH
