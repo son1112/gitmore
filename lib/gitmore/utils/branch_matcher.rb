@@ -1,22 +1,26 @@
 module Gitmore
   class BranchMatcher
+    # TODO: remove repositories accessor
     attr_accessor :matcher, :option, :repositories
 
+    # TODO: helpers
     include BranchHelper
     include RubyHelper
+    # TODO: utilities
     include Gitmore::Branches
     include Gitmore::Statustician
 
     def initialize(matcher=nil, option=nil)
       @matcher = matcher || 'master'
       @option = option
+      # TODO: address circular dependencies
       @repositories = Gitmore::Repositories.get
     end
 
     private
 
     def count
-      repositories.count
+      @repositories.count
     end
 
     def find
